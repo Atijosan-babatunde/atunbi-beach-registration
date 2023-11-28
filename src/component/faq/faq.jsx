@@ -94,7 +94,7 @@ const FaqSection = () => {
                     <div style={{ display: openFour ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                            We converge at ccc atunbi cathedral location at No1 oyesiku street Alapere,Lagos for 8am and we all move at 9am. 
+                            We converge at ccc atunbi cathedral location at No1 oyesiku street Alapere,Lagos for 8am and we all move at 8.30 am. 
                             We are very strict with our timing as any form of lateness will not be entertained.
                             </div>
                         </div>
