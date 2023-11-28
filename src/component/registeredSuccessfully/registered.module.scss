@@ -98,6 +98,13 @@
     color: #ffffff;
   }
 
+  .paymentbtn{
+    border: none !important;
+    color: #fff;
+    background: #ff5800;
+    margin-top: 0.6em;
+  }
+
   @media screen and (max-width:960px) {
     .content{
         width: 70%;

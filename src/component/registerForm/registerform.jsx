@@ -2,27 +2,106 @@ import styles from "../registerForm/registerform.module.scss"
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import RegisteredSuccessfully from "../registeredSuccessfully/registeredmodal";
-// import { PaystackButton } from 'react-paystack'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const RegisterForm = () => {
-    const [UserName, setUserName] = useState("");
-    const [phoneNum, setPhoneNum] = useState("");
-    const [email, setEmail] = useState("");
-    const [age, setAge] = useState("")
 
-    // const config = {
-    //     email: email,
-    //     amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    //     publicKey: 'pk_test_dsdfghuytfd2345678gvxxxxxxxxxx',
-    // };
+
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        phone: "",
+        age: ""
+    })
+
+    const handleforminput = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_URL + "/register",
+                data: formData
+            })
+
+
+            if (response.data.status === false) throw new Error(response.data.message)
+            toast.success(response.data.message)
+            setShowModal(true)
+            sessionStorage.setItem('userToken', response.data.token)
+
+
+
+        } catch (error) {
+            toast.error(error.response.data.message || "Sorry something went wrong")
+        }
+    }
+
+
+    let amount = ""
+    formData.age >= 10 ? amount = Math.abs("8000" * 100) : amount = Math.abs("5000" * 100)
+    const config = {
+        email: formData.email,
+        amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+        publicKey: process.env.REACT_APP_PUBLIC_KEY
+    };
+
+
+    const userToken = sessionStorage.getItem('userToken');
+    const onSuccess = async (data) => {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: process.env.REACT_APP_API_URL + "/complete",
+                data: {
+                    "reference": data.reference
+                },
+                headers: {
+                    'Authorization': `Bearer ${userToken}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            if (response.data.status === false) throw new Error(response.data.message)
+            setFormData({
+                username: "",
+                email: "",
+                phone: ""
+            })
+
+        } catch (error) {
+            console.log(error.response.data.message);
+        }
+        toast.success("payment successfully completed")
+        navigate("/")
+    };
+
+    // const onClose = () => {
+    //     toast("your payment was unsuccessful")
+    // }
+
+
+    const componentProps = {
+        ...config,
+        text: 'Make Payment',
+        onSuccess: (data) => onSuccess(data),
+        // onClose: null,
+    }
 
     const validate = () => {
         return (
-            !UserName ||
-            !email ||
-            !phoneNum ||
-            !age
+            !formData.username ||
+            !formData.email ||
+            !formData.phone ||
+            !formData.age
         );
     };
 
@@ -61,16 +140,20 @@ const RegisterForm = () => {
                                     <input
                                         className={styles.calculatorinput}
                                         type="text"
+                                        value={formData.username}
+                                        name="username"
                                         placeholder="Enter your username"
-                                        onChange={(e) => setUserName(e.target.value)}
+                                        onChange={handleforminput}
                                     />
 
                                     <h2 className={styles.rowname}>Email address</h2>
                                     <input
                                         className={styles.calculatorinput}
                                         type="email"
+                                        value={formData.email}
+                                        name="email"
                                         placeholder="Enter your email address"
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={handleforminput}
                                     />
                                 </div>
 
@@ -79,16 +162,20 @@ const RegisterForm = () => {
                                     <input
                                         className={styles.calculatorinput}
                                         type="number"
+                                        value={formData.phone}
+                                        name="phone"
                                         placeholder="Enter your phone number"
-                                        onChange={(e) => setPhoneNum(e.target.value)}
+                                        onChange={handleforminput}
                                     />
 
                                     <h2 className={styles.rowname}>Age</h2>
                                     <input
                                         className={styles.calculatorinput}
                                         type="number"
+                                        value={formData.age}
+                                        name="age"
                                         placeholder="Enter your age"
-                                        onChange={(e) => setAge(e.target.value)}
+                                        onChange={handleforminput}
                                     />
                                 </div>
                             </div>
@@ -97,7 +184,7 @@ const RegisterForm = () => {
                             <div className={styles.requestbut}>
                                 <button
                                     className={styles.btnrequest}
-                                    onClick={handleModalRegistered}
+                                    onClick={handleSubmit}
                                     disabled={validate()}
                                     style={{
                                         backgroundColor: validate()
@@ -114,11 +201,12 @@ const RegisterForm = () => {
                                 </button>
                             </div>
                         </div>
-                        {showModal && <RegisteredSuccessfully {...{ handleModalRegistered }} />}
+                        {showModal && <RegisteredSuccessfully {...{ handleModalRegistered, componentProps }} />}
+                        
                     </div>
                 </div>
             </div>
-            {/* <ToastContainer /> */}
+            <ToastContainer />
         </div>
     );
 }

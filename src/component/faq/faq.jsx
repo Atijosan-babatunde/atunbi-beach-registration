@@ -51,9 +51,8 @@ const FaqSection = () => {
                     <div style={{ display: isgeneral ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                No you dont need to come along with the payment receipt, but you need to come along with the 
-                                message sent to your email from Atunbi volcano hangout, this message as the reference number will be your gate 
-                                pass to volcano beach hangout.
+                                No, but you on need the confirmation code sent to your email after payment.
+
                             </div>
                         </div>
                     </div>
@@ -67,7 +66,7 @@ const FaqSection = () => {
                     <div style={{ display: openTwo ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                Vintage dress with beautiful sneakers.
+                                As the theme implies, D’Vintage party.
                             </div>
                         </div>
                     </div>
@@ -81,8 +80,7 @@ const FaqSection = () => {
                     <div style={{ display: openThree ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                               Yes your fee covers the transport fare going and coming, and also covers the feeding and every game you will 
-                               be participating in.
+                            Yes it covers your transportation to and fro, feeding, swimming and all other games.
                             </div>
                         </div>
                     </div>
@@ -96,8 +94,8 @@ const FaqSection = () => {
                     <div style={{ display: openFour ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                               We are to converge at CCC Atunbi cathedral, located at 1 Oyeshiku street Alapere Lagos 
-                               we would be leaving to the beach location at exactly 10:00 AM
+                            We converge at ccc atunbi cathedral location at No1 oyesiku street Alapere,Lagos for 8am and we all move at 9am. 
+                            We are very strict with our timing as any form of lateness will not be entertained.
                             </div>
                         </div>
                     </div>
@@ -111,7 +109,7 @@ const FaqSection = () => {
                     <div style={{ display: openFive ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                               Yes you can. you just need to come along with the message received from Atubi Volcano hangout.
+                                Yes you can. you just need to come along with the message received from Atubi Volcano hangout.
                             </div>
                         </div>
                     </div>
