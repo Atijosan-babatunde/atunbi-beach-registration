@@ -38,7 +38,7 @@ const ContactUs = () => {
                         <h2 className={styles.rowname}>Describe your question</h2>
                         <textarea className={styles.calculatorinputtextarea} type="number" placeholder="Write here..." cols="20" />
                         <div className={styles.contactus}>
-                            <PrimaryButton buttonText="Subscribe"></PrimaryButton>
+                            <PrimaryButton buttonText="Submit"></PrimaryButton>
                         </div>
                     </div>
                 </div>

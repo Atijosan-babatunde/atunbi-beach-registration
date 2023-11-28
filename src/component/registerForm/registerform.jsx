@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import RegisteredSuccessfully from "../registeredSuccessfully/registeredmodal";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import ReactLoading from "react-loading";
 
 
 const RegisterForm = () => {
-
-
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -33,8 +33,9 @@ const RegisterForm = () => {
                 data: formData
             })
 
-
+            setLoading(true);
             if (response.data.status === false) throw new Error(response.data.message)
+            setLoading(false);
             toast.success(response.data.message)
             setShowModal(true)
             sessionStorage.setItem('userToken', response.data.token)
@@ -191,13 +192,12 @@ const RegisterForm = () => {
                                             ? "rgba(1, 27, 109, 0.20)"
                                             : " ",
                                     }}
-                                >
-                                    Submit
-                                    {/* {loading ? (
+                                > 
+                                    {loading ? (
                                         <ReactLoading color="white" width={25} height={25} type="spin" />
                                     ) : (
-                                        "Create account"
-                                    )} */}
+                                        " Submit"
+                                    )}
                                 </button>
                             </div>
                         </div>

@@ -6,11 +6,11 @@ import beachimg2 from "../../assets/png/imgtwo.jpg"
 import beachimg3 from "../../assets/png/imgthree.jpg"
 import beachimg4 from "../../assets/png/imgfour.jpg"
 import beachimg5 from "../../assets/png/imgfive.jpg"
-import beachimg6 from "../../assets/png/imgsix.jpg"
-import beachimg7 from "../../assets/png/imgseven.jpg"
-import beachimg8 from "../../assets/png/imgeight.jpg"
-import beachimg9 from "../../assets/png/imgnine.jpg"
-import beachimg10 from "../../assets/png/imgten.jpg"
+// import beachimg6 from "../../assets/png/imgsix.jpg"
+// import beachimg7 from "../../assets/png/imgseven.jpg"
+// import beachimg8 from "../../assets/png/imgeight.jpg"
+// import beachimg9 from "../../assets/png/imgnine.jpg"
+// import beachimg10 from "../../assets/png/imgten.jpg"
 
 
 const PicturePage = () => {
@@ -34,7 +34,7 @@ const PicturePage = () => {
                     <div className={styles.box1}>
                         <img src={beachimg5} alt="" />
                     </div>
-                    <div className={styles.box1}>
+                    {/* <div className={styles.box1}>
                         <img src={beachimg6} alt="" />
                     </div>
                     <div className={styles.box1}>
@@ -48,7 +48,7 @@ const PicturePage = () => {
                     </div>
                     <div className={styles.box1}>
                         <img src={beachimg10} alt="" />
-                    </div>
+                    </div> */}
 
                     {/* <div className={styles.downlink}>Let's create memories together <span>register now...</span></div> */}
                 </div>

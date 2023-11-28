@@ -51,7 +51,7 @@ const FaqSection = () => {
                     <div style={{ display: isgeneral ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                No, but you on need the confirmation code sent to your email after payment.
+                                No, but you will need the confirmation code sent to your email after payment.
 
                             </div>
                         </div>
@@ -94,7 +94,7 @@ const FaqSection = () => {
                     <div style={{ display: openFour ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                            We converge at ccc atunbi cathedral location at No1 oyesiku street Alapere,Lagos for 8am and we all move at 8.30 am. 
+                            We converge at ccc atunbi cathedral for 8 am location at No1 oyesiku street Alapere Ketu Lagos, and we all move at 8.30 am. 
                             We are very strict with our timing as any form of lateness will not be entertained.
                             </div>
                         </div>
@@ -102,14 +102,14 @@ const FaqSection = () => {
                 </div>
                 <div className={styles.firstrow}>
                     <div onClick={openingSectionFive} className={styles.accordion}>
-                        <div className={styles.general}>Can i pay for my naighbor with the same data?</div>
+                        <div className={styles.general}>Can i pay for my neighbor with the same data?</div>
                         <LiaTimesSolid style={{ display: openFour ? '' : 'none' }} />
                         <BiPlus style={{ display: !openFour ? '' : 'none' }} />
                     </div>
                     <div style={{ display: openFive ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                Yes you can. you just need to come along with the message received from Atubi Volcano hangout.
+                                Yes you can. You only need to come along with the message received from Atunbi Volcano hangout.
                             </div>
                         </div>
                     </div>
