@@ -5,9 +5,11 @@ import RegisteredSuccessfully from "../registeredSuccessfully/registeredmodal";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import ReactLoading from "react-loading";
+import AfterPaymentModal from "../afterPayment/afterPayment";
 
 
 const RegisterForm = () => {
+    const [referenceCode, setReferenceCode] = useState("")
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
@@ -32,6 +34,12 @@ const RegisterForm = () => {
                 url: process.env.REACT_APP_API_URL + "/register",
                 data: formData
             })
+            // let data = {
+            //     username: "",
+            //     email: "",
+            //     phone: "",
+            //     age: ""
+            // }
 
             setLoading(true);
             if (response.data.status === false) throw new Error(response.data.message)
@@ -72,6 +80,7 @@ const RegisterForm = () => {
                 }
             })
             if (response.data.status === false) throw new Error(response.data.message)
+            setReferenceCode(data.reference)
             setFormData({
                 username: "",
                 email: "",
@@ -82,7 +91,7 @@ const RegisterForm = () => {
             console.log(error.response.data.message);
         }
         toast.success("payment successfully completed")
-        navigate("/")
+        setShowAfterPayModal(true)
     };
 
     // const onClose = () => {
@@ -115,9 +124,14 @@ const RegisterForm = () => {
     // MODAL STATE
 
     const [showModal, setShowModal] = useState(false);
+    const [showAfterPayModal, setShowAfterPayModal] = useState(false);
 
     function handleModalRegistered() {
         setShowModal(!showModal);
+    }
+
+    function handleModalShowAfterPayment() {
+        setShowAfterPayModal(!showAfterPayModal)
     }
 
 
@@ -202,6 +216,7 @@ const RegisterForm = () => {
                             </div>
                         </div>
                         {showModal && <RegisteredSuccessfully {...{ handleModalRegistered, componentProps }} />}
+                        {showAfterPayModal && <AfterPaymentModal {...{ handleModalShowAfterPayment, referenceCode }}/>}
                         
                     </div>
                 </div>

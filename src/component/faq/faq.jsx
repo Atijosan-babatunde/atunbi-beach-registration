@@ -44,14 +44,15 @@ const FaqSection = () => {
                 </div>
                 <div className={styles.firstrow}>
                     <div onClick={openGeneral} className={styles.accordion}>
-                        <div className={styles.general}>After payment will i come along with payment receipt?</div>
+                        <div className={styles.general}>What will i need to do after payment?</div>
                         <LiaTimesSolid style={{ display: isgeneral ? '' : 'none' }} />
                         <BiPlus style={{ display: !isgeneral ? '' : 'none' }} />
                     </div>
                     <div style={{ display: isgeneral ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                No, but you will need the confirmation code sent to your email after payment.
+                                Immediately you are done making payment, please follow the instruction written in the last modal that popped up
+                                on you screen. Inside it as your Reference Code, please come along with the reference code, cause it's your gate pass to the event.
 
                             </div>
                         </div>
@@ -109,7 +110,8 @@ const FaqSection = () => {
                     <div style={{ display: openFive ? '' : 'none' }} className={styles.boxRow}>
                         <div className={styles.box}>
                             <div className={styles.desc}>
-                                Yes you can. You only need to come along with the message received from Atunbi Volcano hangout.
+                                Yes you can. You only need to come along with the reference code you received immediately you make a payment.
+                                Its advisable you make a screenshot of the last modal displayed, inside it as your Reference Code.
                             </div>
                         </div>
                     </div>
