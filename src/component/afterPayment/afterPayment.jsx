@@ -20,7 +20,6 @@ const AfterPaymentModal = ({ handleModalShowAfterPayment, referenceCode }) => {
                     </div>
 
                     <div className={styles.contentholder}>
-                        {/* <img src={impot} alt="" /> */}
                         <h2 className={styles.modalhead}>IMPORTANT INFORMATION, PLEASE TAKE A SCREENSHOT OF THIS MODAL</h2>
                         <p className={styles.modalpara}>
                             Thank you for your response…. Your payment has been received

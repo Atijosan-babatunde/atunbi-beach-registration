@@ -34,12 +34,6 @@ const RegisterForm = () => {
                 url: process.env.REACT_APP_API_URL + "/register",
                 data: formData
             })
-            // let data = {
-            //     username: "",
-            //     email: "",
-            //     phone: "",
-            //     age: ""
-            // }
 
             setLoading(true);
             if (response.data.status === false) throw new Error(response.data.message)
@@ -61,7 +55,8 @@ const RegisterForm = () => {
     const config = {
         email: formData.email,
         amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-        publicKey: process.env.REACT_APP_PUBLIC_KEY
+        publicKey: process.env.REACT_APP_PUBLIC_KEY,
+        bearer: "subaccount"
     };
 
 
