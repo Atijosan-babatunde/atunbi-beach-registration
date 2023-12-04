@@ -51,7 +51,7 @@ const RegisterForm = () => {
 
 
     let amount = ""
-    formData.age >= 10 ? amount = Math.abs("8000" * 100) : amount = Math.abs("5000" * 100)
+    formData.age >= 10 ? amount = Math.abs("8220" * 100) : amount = Math.abs("5175" * 100)
     const config = {
         email: formData.email,
         amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
